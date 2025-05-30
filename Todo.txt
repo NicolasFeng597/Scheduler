@@ -1,0 +1,1 @@
+- edge case in some classes where one section has different time slots on different days
