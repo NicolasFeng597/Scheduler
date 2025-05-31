@@ -41,13 +41,15 @@ public class Parsing {
                     // parse each line based on its type
                     switch (lineType % 4) {
                         case 0:
-                            // timeslot number and name
+                            // timeslot number, name, and parentCourse
                             timeslot = new Timeslot(); // one timeslot every 4 lines
                             int timeslotNumber = Integer.parseInt(line.split("\t")[0]);
                             timeslot.timeslotNumber = timeslotNumber;
 
                             timeslot.name = line.split("\t")[1];
                             timeslotSectionLetter = timeslot.name.charAt(0);
+
+                            timeslot.parentCourse = currentCourse.name;
                             break;
                         case 1:
                             // class time and room assignment

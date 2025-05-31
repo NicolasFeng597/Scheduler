@@ -13,6 +13,14 @@ public class Scheduler {
 
         List<Course> courses = Parsing.generateCourses();
 
+        // find all combinations of courses with courseCount items
+        // Helper returns a list of course arrays : a list of all possible 5
+        // courses, not considering overlaps, no repeats
+
+        // rewrite each combination into sections of each course
+
+        // find all combinations of timeslots for each combination of sections
+
         scanner.close();
     }
 
