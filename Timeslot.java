@@ -6,6 +6,7 @@ public class Timeslot {
    int timeslotNumber;
    int enrolled;
    int limit;
+   String parentCourse;
    
    /*
     * the earliest a course can start is 8:30 AM, and the latest it can end is 10:20 PM
