@@ -25,6 +25,8 @@ public class Scheduler {
         scanner.close();
     }
 
+    // returns a list of all possible combinations of Courses with length courseCount,
+    // with each combination being unique
     public static List<Course[]> combinations() {
         return new ArrayList<Course[]>();
     }
