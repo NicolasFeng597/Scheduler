@@ -1,13 +1,14 @@
 import java.util.BitSet;
 
+// individual timeslots of a certain section, such as L01, L02, B01, B02, etc.
 public class Timeslot {
-   String name;
-   String room;
-   int timeslotNumber;
-   int enrolled;
-   int limit;
-   String parentCourse;
-   
+   String name; // the name of the timeslot, including the letter of the section and number, like "L01"
+   String room; // the room assignment
+   int timeslotNumber; // the unique number assigned to each timeslot by the registrar, like 22204 or 20672
+   int enrolled; // the number of enrolled students in the timeslot
+   int limit; // the limit to the number of students in the timeslot
+   String parentCourse; // the course that this timeslot is a part of, like "EGR 156" or "COS 126"
+
    /*
     * the earliest a course can start is 8:30 AM, and the latest it can end is 10:20 PM
     * each course starts and ends at a time divisible by 5 minutes

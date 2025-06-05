@@ -30,4 +30,26 @@ public class Scheduler {
     public static List<Course[]> combinations() {
         return new ArrayList<Course[]>();
     }
+
+
+    // Returns a List<List<Section>> which contains the required sections of each course
+    // the outermost list object is each section of each class (e.g L, P, B... L, P), 
+    // the innermost is the respective timeslots of each of these sections
+    // each
+    private static List<List<Section>> sectionLists(Course[] courses){
+
+        // Go through each course in courses
+        for (int courseNumber = 0; courseNumber < courses.length; courseNumber++){
+            // Go through each section in each course
+            for (Section courseSection : courses[courseNumber] ){
+                // Each course has a list of sections
+                // Each section is associated with a char name and a list of timeslots that also have names
+                // Is each char name L, P, B? 
+            }
+        }
+      
+
+    }
+
+
 }
