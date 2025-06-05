@@ -1,10 +1,16 @@
-import java.io.IOException;
-import java.util.Scanner;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
 public class Scheduler {
+
+    // Instance variable which stores the number of days (should always
+    // be 5, even if requested for Fridays off)
+    private final static int DAYS = 5;
+    // How many sets of 5 minutes are in a class day
+    private final static int TIME_PERIODS = 166;
+
+    private static HashMap<Timeslot, HashMap<Timeslot, Boolean>> hashMapOverlaps;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // getting schedule size
@@ -17,7 +23,7 @@ public class Scheduler {
         // find all combinations of courses with courseCount items
         // Helper returns a list of course arrays : a list of all possible 5
         // courses, not considering overlaps, no repeats
-        
+
         // rewrite each combination into sections of each course
 
         // find all combinations of timeslots for each combination of sections
@@ -31,25 +37,197 @@ public class Scheduler {
         return new ArrayList<Course[]>();
     }
 
+    // Generates a dataset which stores a list of all timeslots for each
+    // course, formatted in such a way each type of class (e.g. precept, lecture)
+    // must be filled
+    public static List<List<Timeslot>> timeExpandedCombinations(Course[] courseList){
+        // TODO: Add errors/throws if necessary
+        // TODO: Make defensive copy of time object?
+        List<List<Timeslot>> finalSectionList = new ArrayList<>();
+        for (Course course : courseList)
+            for (Section section : course.sections)
+                finalSectionList.add(section.timeslots);
+      return finalSectionList;
+    }
 
-    // Returns a List<List<Section>> which contains the required sections of each course
-    // the outermost list object is each section of each class (e.g L, P, B... L, P), 
-    // the innermost is the respective timeslots of each of these sections
-    // each
-    private static List<List<Section>> sectionLists(Course[] courses){
 
-        // Go through each course in courses
-        for (int courseNumber = 0; courseNumber < courses.length; courseNumber++){
-            // Go through each section in each course
-            for (Section courseSection : courses[courseNumber] ){
-                // Each course has a list of sections
-                // Each section is associated with a char name and a list of timeslots that also have names
-                // Is each char name L, P, B? 
+
+    // TODO: This is brute force implementation. Implement this same process
+    // with hashsets
+
+    // Utilizes all methods in the scheduler class to generate
+    // a List<List<Timeslot>>, a list of all combinations of timeslots that
+    // make valid schedules
+    // does so by calling combinations, and then the recursive methods
+    // getCartesianProduct and getCartesianProductHelper
+    public static List<List<Timeslot>> getAllValidSchedules(){
+        // Run combinations to find all possible combinations of courses
+        List<Course[]> combinations = combinations();
+
+        // Run the recursive methods to determine what of these
+        // course combinations can generate valid schedules
+        // this is updated in result
+        List<List<Timeslot>> result = new ArrayList<>();
+        for( Course[] courseList : combinations){
+            getCartesianProduct(timeExpandedCombinations(courseList), result);
+        }
+
+        return result;
+    }
+
+    // Initializer for the recursive function getCartesianProductHelper
+    // This function allows for the implementation of restrictions
+    private static void getCartesianProduct(List<List<Timeslot>> sets, List<List<Timeslot>> result) {
+        // Initialize the restrictions list
+        BitSet[] restrictions = new BitSet[DAYS];
+        for (int i = 0; i < DAYS; i ++)
+            restrictions[i] = new BitSet(TIME_PERIODS);
+        getCartesianProductHelperBrute(sets, 0, new ArrayList<>(), result, restrictions);
+    }
+
+    // Recursive method, iterates through all possible lecture times, precept, etc. to find combinations
+    // that do NOT have time overlaps
+    // these proper schedules are added to result
+    // if no valid schedules, no updates will be made to result
+    // TODO: Efficiency and errors: does not yet have dynamic programming in
+    // effect, i.e. if two courses cannot run at the same time it will
+    // still check every iteration they are paired
+    private static void getCartesianProductHelperBrute(List<List<Timeslot>> sets, int index, List<Timeslot> current,
+                                                  List<List<Timeslot>> result, BitSet[] scheduleTimes) {
+        // If one from each list is added, return/add the list
+        if (index == sets.size()) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        // List of all timeslots currently in the schedule (not complete)
+        List<Timeslot> currentSet = sets.get(index);
+        for (Timeslot element: currentSet) {
+            // Only want to do this process if the timeslot
+            // is valid/fits into the current set
+            BitSet[] newScheduleTimes = new BitSet[DAYS];
+            boolean noOverlap = true;
+
+            // Check for overlap with schedule times
+            // Iterates through the 5 days
+            // Generates a new schedule including this timeslot
+            // while this process occurs
+            for (int i = 0; i < newScheduleTimes.length; i++){
+                BitSet tempDaySchedule = (BitSet) scheduleTimes[i].clone();
+                // Do the two overlap?
+                if (tempDaySchedule.intersects(element.time[i])){
+                    noOverlap = false;
+                    break;
+                }
+                // Updates the Schedule if this day is acceptable
+                tempDaySchedule.or(element.time[i]);
+                newScheduleTimes[i] = tempDaySchedule;
+            }
+
+            // Initiate recursion
+            if (noOverlap){
+                // Adds the element
+                current.add(element);
+                // Recursion, to next slot
+                getCartesianProductHelperBrute(sets, index + 1, current, result, newScheduleTimes);
+                // Removes the element so the next iteration does not include it
+                current.remove(current.size() - 1);
             }
         }
-      
+    }
+
+    private static void getCartesianProductHelperHashMap(List<List<Timeslot>> sets, int index, List<Timeslot> current,
+                                                  List<List<Timeslot>> result) {
+        // If one from each list is added, return/add the list
+        if (index == sets.size()) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        // List of all timeslots currently in the schedule (not complete)
+        List<Timeslot> currentSet = sets.get(index);
+
+        // Element is the NEW section, that could be added
+        // current is the current schedule that so far has no overlaps
+        // current is not yet added to the list
+
+        for (Timeslot element: currentSet){
+            // Check overlap
+            boolean overlap = false;
+                for (Timeslot approved : current){
+                    // Checks if the two overlap, if so,
+                    // break the function
+                    if (checkOverlap(element, approved)) {
+                        overlap = true;
+                        break;
+                }
+
+            }
+            // Recurse if no overlap
+            if (!overlap){
+                current.add(element);
+                // Recursion, to next slot
+                getCartesianProductHelperHashMap(sets, index + 1, current, result);
+                // Removes the element so the next iteration does not include it
+                current.remove(current.size() - 1);
+            }
+
+        }
+
 
     }
 
 
+    // Private method which checks for overlap
+    private static boolean checkOverlap(Timeslot intro, Timeslot old) {
+        // If intro is not even on the hashmap, add it, then add its
+        // comparisons to old
+
+        // Does it already exist?
+        if (hashMapOverlaps.containsKey(intro) && hashMapOverlaps.get(intro).containsKey(old)){
+            return (hashMapOverlaps.get(intro).get(old));
+        }
+
+
+        // Else, they have not been compared yet.
+
+        // Run comparison
+        boolean overlap = false;
+        for (int i = 0; i < old.time.length; i ++){
+            if (old.time[i].intersects(intro.time[i])) {
+                overlap = true;
+                break;
+            }
+        }
+
+
+        // Does the list not contain intro or old?
+        if (!hashMapOverlaps.containsKey(intro) || !hashMapOverlaps.containsKey(old)) {
+            // Update HashMap
+            // Add one another to the respective hash tables, initializing if
+            // necessary
+            if (hashMapOverlaps.containsKey(intro)){
+                hashMapOverlaps.get(intro).put(old, overlap);
+            } else {
+                HashMap<Timeslot, Boolean> newIntroMap = new HashMap<Timeslot, Boolean>();
+                newIntroMap.put(old, overlap);
+                hashMapOverlaps.put(intro, newIntroMap);
+            }
+            if (hashMapOverlaps.containsKey(old)){
+                hashMapOverlaps.get(old).put(intro, overlap);
+            } else {
+                HashMap<Timeslot, Boolean> newOldMap = new HashMap<Timeslot, Boolean>();
+                newOldMap.put(old, overlap);
+                hashMapOverlaps.put(intro, newOldMap);
+            }
+
+        } else {
+            // The hashMapOverlaps contains both, their comparisons have just not been added
+            hashMapOverlaps.get(intro).put(old, overlap);
+            hashMapOverlaps.get(old).put(intro, overlap);
+        }
+
+        return overlap;
+    }
+// End Class
 }
