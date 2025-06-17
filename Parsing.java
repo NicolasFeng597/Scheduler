@@ -117,12 +117,12 @@ public class Parsing {
         // convert to 24 hr time
         int startTime = Integer.parseInt(timeSection[0].split(" ")[0].replaceFirst(":", ""));
         // "10:40 am" -> ["10:40", "am"][0] -> "10:40" -> "1040" -> 1040
-        if (timeSection[0].split(" ")[1].equals("pm") && startTime != 1200) startTime += 1200;
+        if (timeSection[0].split(" ")[1].equals("pm") && startTime / 100 != 12) startTime += 1200;
 
         int endTime = Integer.parseInt(timeSection[1].split(" ")[0].replaceFirst(":", ""));
         // "12:00 pm" -> ["12:00", "pm"][0] -> "12:00" -> "1200" -> 1200
-        if (timeSection[1].split(" ")[1].equals("pm") && endTime != 1200) endTime += 1200;
-
+        if (timeSection[1].split(" ")[1].equals("pm") && endTime / 100 != 12) endTime += 1200;
+        
         // converting to a range for the BitSet
         startTime = (startTime - 830) / 5;
         endTime = (endTime - 830) / 5;
@@ -132,7 +132,7 @@ public class Parsing {
         for (String i : days) {
             int day;
             if (i.equals("M")) day = 0;
-            else if (i.equals("Tu")) day = 1;
+            else if (i.equals("T")) day = 1;
             else if (i.equals("W")) day = 2;
             else if (i.equals("Th")) day = 3;
             else day = 4; // F

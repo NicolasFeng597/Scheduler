@@ -23,4 +23,9 @@ public class Timeslot {
    // TODO: more efficient to set empty BitSets to null, or can we just use BitSet.isEmpty()?
    // TODO: what if implemented as BitSet[] ongoing = BitSet[5];?
    BitSet[] time;
+
+   @Override
+   public String toString() {
+      return "(" + parentCourse + ", " + name + ") ";
+   }
 }

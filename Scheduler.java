@@ -21,21 +21,51 @@ public class Scheduler {
         List<Course> courses = Parsing.generateCourses();
 
         // find all combinations of courses with courseCount items
-        // Helper returns a list of course arrays : a list of all possible 5
-        // courses, not considering overlaps, no repeats
+        List<Course[]> course_combos = Helper.combinations(courses, courseCount);
 
-        // rewrite each combination into sections of each course
+        List<Timeslot[]> all_schedules = new ArrayList<>();
 
-        // find all combinations of timeslots for each combination of sections
+        // for each course combo in course_combos, we want to find all the possible schedules that come out of that combo
+        for (Course[] course_combo : course_combos) {
+            // first, convert the Course[] into a List<Section> of all sections from that combo
+            // so, if I had a Course[5] with each Course having 3 Sections, the resultant length(List<Section>) = 15
+            List<Section> combo_sections = Helper.courses_to_sections(course_combo);
 
+            // then, convert the list of sections to a list of all combos of timeslots
+            List<Timeslot[]> combo_schedules = Helper.choose_timeslots_dumb(combo_sections);
+
+            // add all these options to all schedule
+            all_schedules.addAll(combo_schedules);
+        }
+        System.out.println(all_schedules.size());
+
+        // stuff for must including that class
+        System.out.println("Any mandatory classes to include? (press enter to skip)");
+        for (int i = 0; i < courses.size() - 1; i++) {
+            System.out.print(courses.get(i).name + ", ");
+        }
+        System.out.println(courses.get(courses.size() - 1).name);
+        String exclude = scanner.next();
+
+        boolean flag = true;
+        for (int i = 0; i < all_schedules.size(); i++) {
+            flag = true;
+            for (Timeslot t : all_schedules.get(i)) if (t.parentCourse.equals(exclude)) flag = false;
+            if (flag) {
+                for (Timeslot t : all_schedules.get(i)) {
+                    System.out.print(t + " ");
+                }
+                System.out.println();
+                all_schedules.remove(i);
+                i--;
+            }
+        }
+        System.out.println(all_schedules.size());  
         scanner.close();
     }
 
     // returns a list of all possible combinations of Courses with length courseCount,
     // with each combination being unique
-    public static List<Course[]> combinations() {
-        return new ArrayList<Course[]>();
-    }
 
     // Generates a dataset which stores a list of all timeslots for each
     // course, formatted in such a way each type of class (e.g. precept, lecture)
@@ -60,15 +90,14 @@ public class Scheduler {
     // make valid schedules
     // does so by calling combinations, and then the recursive methods
     // getCartesianProduct and getCartesianProductHelper
-    public static List<List<Timeslot>> getAllValidSchedules(){
+    public static List<List<Timeslot>> getAllValidSchedules(List<Course[]> course_combos){
         // Run combinations to find all possible combinations of courses
-        List<Course[]> combinations = combinations();
 
         // Run the recursive methods to determine what of these
         // course combinations can generate valid schedules
         // this is updated in result
         List<List<Timeslot>> result = new ArrayList<>();
-        for( Course[] courseList : combinations){
+        for(Course[] courseList : course_combos){
             getCartesianProduct(timeExpandedCombinations(courseList), result);
         }
 
