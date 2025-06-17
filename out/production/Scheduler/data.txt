@@ -1,64 +1,303 @@
 
 EGR 156
-22204	L01	
+22204	L01
 M W,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
 Enrolled: 88
 Limit: 110		Booksfor section L01(Link is external) (Link opens in new window)
-22205	P01	
+22205	P01
 Th,7:30 pm – 8:20 pm,7:30 p.m. to 8:20 p.m.,Room assignment TBD
 Enrolled: 15
-Limit: 37		
-22206	P02	
+Limit: 37
+22206	P02
 F,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
 Enrolled: 30
-Limit: 30	Closed	
-22207	P03	
+Limit: 30	Closed
+22207	P03
 F,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
 Enrolled: 21
-Limit: 42		
-22208	P04	
+Limit: 42
+22208	P04
 F,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
 Enrolled: 22
-Limit: 30		
+Limit: 30
 
 COS 226
-20672	L01	
+20672	L01
 T Th,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
 Enrolled: 156
 Limit: 246		Booksfor section L01(Link is external) (Link opens in new window)
-20673	P01	
+20673	P01
 Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
 Enrolled: 32
-Limit: 32	Closed	
-22415	P01A	
+Limit: 32	Closed
+22415	P01A
 Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
 Enrolled: 16
-Limit: 32		
-22416	P01B	
+Limit: 32
+22416	P01B
 Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
 Enrolled: 9
-Limit: 32		
-20679	P02	
+Limit: 32
+20679	P02
 F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
 Enrolled: 32
-Limit: 32	Closed	
-22417	P02A	
+Limit: 32	Closed
+22417	P02A
 F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
 Enrolled: 21
-Limit: 32		
-22418	P02B	
+Limit: 32
+22418	P02B
 F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
 Enrolled: 8
-Limit: 32		
-20674	P03	
+Limit: 32
+20674	P03
 F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
 Enrolled: 28
-Limit: 32		
-22419	P03A	
-F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
-Enrolled: 5
-Limit: 32		
-22420	P03B	
+Limit: 32
+22419	P03A
 F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
 Enrolled: 5
 Limit: 32
+22420	P03B
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 5
+Limit: 32
+
+COS 226 V2!
+20672	L01
+T Th,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 156
+Limit: 246		Booksfor section L01(Link is external) (Link opens in new window)
+20673	P01
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 32
+Limit: 32	Closed
+22415	P01A
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 16
+Limit: 32
+22416	P01B
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 9
+Limit: 32
+20679	P02
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 32
+Limit: 32	Closed
+22417	P02A
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 21
+Limit: 32
+22418	P02B
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 8
+Limit: 32
+20674	P03
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 28
+Limit: 32
+22419	P03A
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 5
+Limit: 32
+22420	P03B
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 5
+Limit: 32
+
+COS 226 V3??
+20672	L01
+T Th,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 156
+Limit: 246		Booksfor section L01(Link is external) (Link opens in new window)
+20673	P01
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 32
+Limit: 32	Closed
+22415	P01A
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 16
+Limit: 32
+22416	P01B
+Th,2:55 pm – 4:15 pm,2:55 p.m. to 4:15 p.m.,Room assignment TBD
+Enrolled: 9
+Limit: 32
+20679	P02
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 32
+Limit: 32	Closed
+22417	P02A
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 21
+Limit: 32
+22418	P02B
+F,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 8
+Limit: 32
+20674	P03
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 28
+Limit: 32
+22419	P03A
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 5
+Limit: 32
+22420	P03B
+F,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 5
+Limit: 32
+
+ECE 206
+21231	L01
+T Th,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 155
+Limit: 175		Booksfor section L01(Link is external) (Link opens in new window)
+21230	B01
+M,7:30 pm – 10:20 pm,7:30 p.m. to 10:20 p.m.,Room assignment TBD
+Enrolled: 35
+Limit: 35	Closed
+21232	B02
+W,7:30 pm – 10:20 pm,7:30 p.m. to 10:20 p.m.,Room assignment TBD
+Enrolled: 30
+Limit: 35
+21233	B03
+T,7:30 pm – 10:20 pm,7:30 p.m. to 10:20 p.m.,Room assignment TBD
+Enrolled: 36
+Limit: 36	Closed
+21235	B04
+W,1:20 pm – 4:10 pm,1:20 p.m. to 4:10 p.m.,Room assignment TBD
+Enrolled: 34
+Limit: 35
+21234	B05
+Th,7:30 pm – 10:20 pm,7:30 p.m. to 10:20 p.m.,Room assignment TBD
+Enrolled: 20
+Limit: 35
+
+COS 240
+20682	L01
+M W,9:00 am – 10:20 am,9:00 a.m. to 10:20 a.m.,Room assignment TBD
+Enrolled: 84
+Limit: 120		Booksfor section L01(Link is external) (Link opens in new window)
+20683	P01
+Th,12:15 pm – 1:05 pm,12:15 p.m. to 1:05 p.m.,Room assignment TBD
+Enrolled: 17
+Limit: 20
+20684	P02
+Th,12:15 pm – 1:05 pm,12:15 p.m. to 1:05 p.m.,Room assignment TBD
+Enrolled: 14
+Limit: 20
+20685	P03
+Th,1:20 pm – 2:10 pm,1:20 p.m. to 2:10 p.m.,Room assignment TBD
+Enrolled: 19
+Limit: 20
+22407	P04
+Th,2:25 pm – 3:15 pm,2:25 p.m. to 3:15 p.m.,Room assignment TBD
+Enrolled: 13
+Limit: 20
+20686	P05
+F,9:35 am – 10:25 am,9:35 a.m. to 10:25 a.m.,Room assignment TBD
+Enrolled: 11
+Limit: 10	Closed
+20687	P06
+F,9:35 am – 10:25 am,9:35 a.m. to 10:25 a.m.,Room assignment TBD
+Enrolled: 10
+Limit: 10	Closed
+
+ECE 308
+21240	L01
+M W,9:35 am – 10:25 am,9:35 a.m. to 10:25 a.m.,Room assignment TBD
+Enrolled: 25
+Limit: 40		Booksfor section L01(Link is external) (Link opens in new window)
+21241	B01
+T,1:20 pm – 4:10 pm,1:20 p.m. to 4:10 p.m.,Room assignment TBD
+Enrolled: 2
+Limit: 10
+21243	B02
+T,7:30 pm – 10:20 pm,7:30 p.m. to 10:20 p.m.,Room assignment TBD
+Enrolled: 10
+Limit: 10	Closed
+21242	B03
+F,1:20 pm – 4:10 pm,1:20 p.m. to 4:10 p.m.,Room assignment TBD
+Enrolled: 10
+Limit: 10	Closed
+21244	B04
+Th,1:20 pm – 4:10 pm,1:20 p.m. to 4:10 p.m.,Room assignment TBD
+Enrolled: 3
+Limit: 10
+
+ECE 396
+21246	L01
+M W,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.,Room assignment TBD
+Enrolled: 46
+Limit: 85		Booksfor section L01
+
+COS 324
+20692	L01
+M W,1:20 pm – 2:40 pm,1:20 p.m. to 2:40 p.m.,Room assignment TBD
+Enrolled: 141
+Limit: 160		Booksfor section L01(Link is external) (Link opens in new window)
+20693	P01
+Th,9:35 am – 10:25 am,9:35 a.m. to 10:25 a.m.,Room assignment TBD
+Enrolled: 35
+Limit: 35	Closed
+20694	P02
+Th,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
+Enrolled: 27
+Limit: 35
+22422	P02A
+Th,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
+Enrolled: 6
+Limit: 35
+20696	P03
+Th,1:20 pm – 2:10 pm,1:20 p.m. to 2:10 p.m.,Room assignment TBD
+Enrolled: 30
+Limit: 30	Closed
+22423	P04
+Th,2:25 pm – 3:15 pm,2:25 p.m. to 3:15 p.m.,Room assignment TBD
+Enrolled: 13
+Limit: 30
+20695	P05
+Th,3:30 pm – 4:20 pm,3:30 p.m. to 4:20 p.m.,Room assignment TBD
+Enrolled: 30
+Limit: 30	Closed
+
+COS 326
+20698	L01
+M W,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
+Enrolled: 30
+Limit: 80		Booksfor section L01
+20701	P01
+W,12:15 pm – 1:05 pm,12:15 p.m. to 1:05 p.m.,Room assignment TBD
+Enrolled: 17
+Limit: 25
+20699	P02
+Th,9:35 am – 10:25 am,9:35 a.m. to 10:25 a.m.,Room assignment TBD
+Enrolled: 4
+Limit: 25
+20700	P03
+Th,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
+Enrolled: 9
+Limit: 29
+
+CHI 103
+20593	C01
+M T W Th F,8:30 am – 9:20 am,Room assignment TBD
+10/12		Booksfor section C01
+20594	C02
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+10/12		Booksfor section C02
+22917	C02A
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+12/12		Booksfor section C02A
+20595	C03
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+3/12		Booksfor section C03
+23323	C03A
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+12/12		Booksfor section C03A
+20596	D01
+F,1:20 pm – 2:10 pm,Room assignment TBD
+17/26
+20597	D02
+F,2:25 pm – 3:15 pm,Room assignment TBD
+22/26

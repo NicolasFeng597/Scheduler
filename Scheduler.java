@@ -30,7 +30,7 @@ public class Scheduler {
             System.out.print(courses.get(i).name + ", ");
         }
         System.out.println(courses.get(courses.size() - 1).name);
-        
+
         String included_whole = scanner.nextLine();
         String[] included_split = included_whole.split(",");
         for (int i = 0; i < included_split.length; i++) included_split[i] = included_split[i].trim();
@@ -42,26 +42,32 @@ public class Scheduler {
                 if (courses.get(i).name.equals(c)) included_sections += courses.get(i).sections.size();
             }
         }
-        
+
         System.out.println("Include closed classes? Enter Yes or No.");
         String include_closed = scanner.nextLine();
         boolean show_closed = include_closed.strip().toLowerCase().equals("yes");
-        
+
         // actual logic for finding stuff
-        List<Timeslot[]> all_schedules = new ArrayList<>();
+
+        List<List<Timeslot>> all_schedules = new ArrayList<>();
 
         // for each course combo in course_combos, we want to find all the possible schedules that come out of that combo
-        for (Course[] course_combo : course_combos) {
-            // first, convert the Course[] into a List<Section> of all sections from that combo
-            // so, if I had a Course[5] with each Course having 3 Sections, the resultant length(List<Section>) = 15
-            List<Section> combo_sections = Helper.courses_to_sections(course_combo);
+        //for (Course[] course_combo : course_combos) {
+        // first, convert the Course[] into a List<Section> of all sections from that combo
+        // so, if I had a Course[5] with each Course having 3 Sections, the resultant length(List<Section>) = 15
+        // List<Section> combo_sections = Helper.courses_to_sections(course_combo);
 
-            // then, convert the list of sections to a list of all combos of timeslots
-            List<Timeslot[]> combo_schedules = Helper.choose_timeslots_dumb(combo_sections);
+        // then, convert the list of sections to a list of all combos of timeslots
+        // List<Timeslot[]> combo_schedules = Helper.choose_timeslots_dumb(combo_sections);
 
-            // add all these options to all schedule
-            all_schedules.addAll(combo_schedules);
-        }
+        //    List<List<Timeslot>> combo_schedules = getValidSchedulesAve(course_combos);
+        // add all these options to all schedule
+        //   all_schedules.addAll(combo_schedules);
+        // }
+        List<List<Timeslot>> combo_schedules = getValidSchedulesAve(course_combos);
+        all_schedules.addAll(combo_schedules);
+        System.out.println(all_schedules.size());
+
         System.out.println("found " + all_schedules.size() + " possible schedules");
 
         int valid_schedules_counter = 0;
@@ -121,10 +127,50 @@ public class Scheduler {
         for (Course course : courseList)
             for (Section section : course.sections)
                 finalSectionList.add(section.timeslots);
-      return finalSectionList;
+        return finalSectionList;
     }
 
 
+    private static List<List<Timeslot>> allComboTimeslotsSort(Course[] courseList){
+
+        List<List<Timeslot>> finalSectionList = new ArrayList<>();
+
+        int netSections = 0;
+        for (Course course: courseList)
+            netSections += course.sections.size();
+
+        Section[] sections = new Section[netSections];
+
+        int index = 0;
+        for (Course course: courseList)
+            for (Section section: course.sections){
+                sections[index] = section;
+                index++;
+            }
+
+
+        Arrays.sort(sections);
+        for (Section section: sections)
+            finalSectionList.add(section.timeslots);
+
+        return finalSectionList;
+    }
+
+    private static List<List<Timeslot>> allComboTimeslotsSort1(Course[] courseList){
+
+        List<List<Timeslot>> finalSectionList = new ArrayList<>();
+        List<Section> sections = new ArrayList<>();
+
+        for (Course course: courseList)
+            sections.addAll(course.sections);
+
+        //  Collections.sort(sections);
+
+        for (Section section: sections)
+            finalSectionList.add(section.timeslots);
+
+        return finalSectionList;
+    }
 
     // TODO: This is brute force implementation. Implement this same process
     // with hashsets
@@ -148,6 +194,19 @@ public class Scheduler {
         return result;
     }
 
+    public static List<List<Timeslot>> getValidSchedulesAve(List<Course[]> course_combos){
+        List<List<Timeslot>> result = new ArrayList<>();
+        int done = 0;
+
+        for(Course[] courseList : course_combos){
+            result.addAll(Helper.dynamicSectionOverlap(allComboTimeslotsSort(courseList)));
+            // System.out.println("Done: " + done + " Total: " + course_combos.size());
+        }
+
+        return result;
+    }
+
+
     // Initializer for the recursive function getCartesianProductHelper
     // This function allows for the implementation of restrictions
     private static void getCartesianProduct(List<List<Timeslot>> sets, List<List<Timeslot>> result) {
@@ -166,7 +225,7 @@ public class Scheduler {
     // effect, i.e. if two courses cannot run at the same time it will
     // still check every iteration they are paired
     private static void getCartesianProductHelperBrute(List<List<Timeslot>> sets, int index, List<Timeslot> current,
-                                                  List<List<Timeslot>> result, BitSet[] scheduleTimes) {
+                                                       List<List<Timeslot>> result, BitSet[] scheduleTimes) {
         // If one from each list is added, return/add the list
         if (index == sets.size()) {
             result.add(new ArrayList<>(current));
@@ -209,8 +268,11 @@ public class Scheduler {
         }
     }
 
+
+
+
     private static void getCartesianProductHelperHashMap(List<List<Timeslot>> sets, int index, List<Timeslot> current,
-                                                  List<List<Timeslot>> result) {
+                                                         List<List<Timeslot>> result) {
         // If one from each list is added, return/add the list
         if (index == sets.size()) {
             result.add(new ArrayList<>(current));
@@ -227,12 +289,12 @@ public class Scheduler {
         for (Timeslot element: currentSet){
             // Check overlap
             boolean overlap = false;
-                for (Timeslot approved : current){
-                    // Checks if the two overlap, if so,
-                    // break the function
-                    if (checkOverlap(element, approved)) {
-                        overlap = true;
-                        break;
+            for (Timeslot approved : current){
+                // Checks if the two overlap, if so,
+                // break the function
+                if (checkOverlap(element, approved)) {
+                    overlap = true;
+                    break;
                 }
 
             }
@@ -302,5 +364,7 @@ public class Scheduler {
 
         return overlap;
     }
-// End Class
+
+
+    // End class
 }

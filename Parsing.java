@@ -31,7 +31,7 @@ public class Parsing {
                 int lineType = 0; // the current line's type
 
                 line = br.readLine(); // the next line starts the timeslots
-                
+
                 // builds each timeslot, then puts it into its respective Section
                 // if that Section doesn't exist yet, create it
                 // if that Section does exist, append it to that Section's timeslots
@@ -74,15 +74,15 @@ public class Parsing {
                             // the first entry is always enrolled/limit
                             timeslot.enrolled = Integer.parseInt(line_data[0].split("/")[0]);
                             timeslot.limit = Integer.parseInt(line_data[0].split("/")[1]);
-                
+
                             // If the split data has multiple entries, only the second entry can be
                             // closed
                             if (line_data.length > 1) {
                                 if (line_data[1].equals("Closed")) timeslot.closed = true;
                             }
-                        
+
                             // put the current finished timeslot into its section
-                            addSection: 
+                            addSection:
                             {
                                 for (Section s : sections) {
                                     // if the timeslot is in this existing section, append it
@@ -119,7 +119,7 @@ public class Parsing {
         String[] timeSection = lineSections[1].split(" – ");
         // = ["10:40 am", "12:00 pm"]
 
-        /* 
+        /*
         * converting times to a range for the BitSet:
         * 8:30 AM would be 0, 8:35 AM would be 1, ..., 10:20 PM would be 165
         */
@@ -131,7 +131,7 @@ public class Parsing {
         int endTime = Integer.parseInt(timeSection[1].split(" ")[0].replaceFirst(":", ""));
         // "12:00 pm" -> ["12:00", "pm"][0] -> "12:00" -> "1200" -> 1200
         if (timeSection[1].split(" ")[1].equals("pm") && endTime / 100 != 12) endTime += 1200;
-        
+
         // converting to a range for the BitSet
         startTime = (startTime - 830) / 5;
         endTime = (endTime - 830) / 5;
@@ -145,10 +145,10 @@ public class Parsing {
             else if (i.equals("W")) day = 2;
             else if (i.equals("Th")) day = 3;
             else day = 4; // F
-            
+
             result[day].set(startTime, endTime);
         }
-        
+
         return result;
     }
 }
