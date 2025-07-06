@@ -1,0 +1,236 @@
+
+CHI 103
+20593	C01	
+M T W Th F,8:30 am – 9:20 am,Room assignment TBD
+10/12		Booksfor section C01
+20594	C02	
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+10/12		Booksfor section C02
+22917	C02A	
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+12/12		Booksfor section C02A
+20595	C03	
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+3/12		Booksfor section C03
+23323	C03A	
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+12/12		Booksfor section C03A
+20596	D01	
+F,1:20 pm – 2:10 pm,Room assignment TBD
+17/26		
+20597	D02	
+F,2:25 pm – 3:15 pm,Room assignment TBD
+22/26	
+
+COS 226
+20672	L01	
+T Th,10:40 am – 12:00 pm,Room assignment TBD
+90/246		Booksfor section L01
+20673	P01	
+Th,2:55 pm – 4:15 pm,Room assignment TBD
+0/32	Closed	
+22415	P01A	
+Th,2:55 pm – 4:15 pm,Room assignment TBD
+16/32		
+22416	P01B	
+Th,2:55 pm – 4:15 pm,Room assignment TBD
+23/32		
+20679	P02	
+F,10:40 am – 12:00 pm,Room assignment TBD
+0/32	Closed	
+22417	P02A	
+F,10:40 am – 12:00 pm,Room assignment TBD
+11/32		
+22418	P02B	
+F,10:40 am – 12:00 pm,Room assignment TBD
+24/32		
+20674	P03	
+F,1:20 pm – 2:40 pm,Room assignment TBD
+4/32		
+22419	P03A	
+F,1:20 pm – 2:40 pm,Room assignment TBD
+27/32		
+22420	P03B	
+F,1:20 pm – 2:40 pm,Room assignment TBD
+27/32
+
+EGR 156
+22204	L01	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+22/110		Booksfor section L01
+22205	P01	
+Th,7:30 pm – 8:20 pm,Room assignment TBD
+22/37		
+22206	P02	
+F,10:40 am – 11:30 am,Room assignment TBD
+0/30	Closed	
+22207	P03	
+F,10:40 am – 11:30 am,Room assignment TBD
+21/42		
+22208	P04	
+F,10:40 am – 11:30 am,Room assignment TBD
+8/30		
+
+MAT 201
+21789	C01	
+M T W,8:30 am – 9:20 am,Fine Hall 314
+47/60		Booksfor section C01
+22858	C01A	
+M T W,8:30 am – 9:20 am,Fine Hall 322
+30/30	Closed	Booksfor section C01A
+21790	C02	
+M T W,9:35 am – 10:25 am,Fine Hall 314
+73/84		Booksfor section C02
+22542	C02A	
+M T W,9:35 am – 10:25 am,Fine Hall 601
+24/24	Closed	Booksfor section C02A
+22543	C02B	
+M T W,9:35 am – 10:25 am,Fine Hall 322
+30/30	Closed	Booksfor section C02B
+21791	C03	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+123/150		Booksfor section C03
+22548	C03A	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+30/30	Closed	Booksfor section C03A
+22549	C03B	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+30/30	Closed	Booksfor section C03B
+22859	C03C	
+M W,10:40 am – 12:00 pm,Fine Hall 1001
+20/20	Closed	Booksfor section C03C
+22860	C03D	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+20/20	Closed	Booksfor section C03D
+22861	C03E	
+M W,10:40 am – 12:00 pm,Room assignment TBD
+20/20	Closed	Booksfor section C03E
+21792	C04	
+M W,1:20 pm – 2:40 pm,Fine Hall 401
+55/70		Booksfor section C04
+22550	C04A	
+M W,1:20 pm – 2:40 pm,Room assignment TBD
+20/20	Closed	Booksfor section C04A
+22862	C04B	
+M W,1:20 pm – 2:40 pm,Room assignment TBD
+30/30	Closed	Booksfor section C04B
+22863	C05	
+M W,2:55 pm – 4:15 pm,Fine Hall 314
+41/60		Booksfor section C05
+22864	C05A	
+M W,2:55 pm – 4:15 pm,Fine Hall 322
+30/30	Closed	Booksfor section C05A
+21793	P01	
+F,8:30 am – 9:20 am,Fine Hall 314
+29/35		
+21794	P02	
+F,9:35 am – 10:25 am,Fine Hall 314
+41/54		
+22551	P02A	
+F,9:35 am – 10:25 am,Fine Hall 224
+30/30	Closed	
+21795	P03	
+F,10:40 am – 11:30 am,Fine Hall 224
+123/150		
+22552	P03A	
+F,10:40 am – 11:30 am,Fine Hall 322
+30/30	Closed	
+22553	P03B	
+F,10:40 am – 11:30 am,Room assignment TBD
+30/30	Closed	
+22554	P03C	
+F,10:40 am – 11:30 am,Room assignment TBD
+30/30	Closed	
+22555	P03D	
+F,10:40 am – 11:30 am,Room assignment TBD
+30/30	Closed	
+21796	P04	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+126/150		
+22556	P04A	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+30/30	Closed	
+22557	P04B	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+30/30	Closed	
+22558	P04C	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+30/30	Closed	
+22559	P04D	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+30/30	Closed	
+21798	P05	
+F,1:20 pm – 2:10 pm,Room assignment TBD
+15/30		
+21797	P99	
+To be determined
+20/20
+
+MUS 204
+21275	L01	
+W,10:40 am – 11:30 am,Room assignment TBD
+0/30	Closed	Booksfor section L01
+21274	B01	
+W,1:20 pm – 4:10 pm,Room assignment TBD
+0/15	Closed	
+21278	B02	
+Th,1:20 pm – 4:10 pm,Room assignment TBD
+11/15		
+21279	B03	
+F,1:20 pm – 4:10 pm,Room assignment TBD
+7/18		
+21276	P01	
+W,12:15 pm – 1:05 pm,Room assignment TBD
+0/15	Closed	
+21277	P02	
+Th,12:15 pm – 1:05 pm,Room assignment TBD
+7/15		
+21280	P03	
+F,12:15 pm – 1:05 pm,Room assignment TBD
+8/15
+
+ECE 206
+21231	L01	
+T Th,1:20 pm – 2:40 pm,Room assignment TBD
+20/175		Booksfor section L01
+21230	B01	
+M,7:30 pm – 10:20 pm,Room assignment TBD
+0/35	Closed	
+21232	B02	
+W,7:30 pm – 10:20 pm,Room assignment TBD
+5/35		
+21233	B03	
+T,7:30 pm – 10:20 pm,Room assignment TBD
+0/36	Closed	
+21235	B04	
+W,1:20 pm – 4:10 pm,Room assignment TBD
+1/35		
+21234	B05	
+Th,7:30 pm – 10:20 pm,Room assignment TBD
+15/35		
+
+ORF 309
+20132	L01	
+M W F,8:30 am – 9:20 am,Room assignment TBD
+0/190	Closed	Booksfor section L01
+20133	P01	
+M,3:30 pm – 4:20 pm,Room assignment TBD
+0/29	Closed	
+20134	P02	
+M,3:30 pm – 4:20 pm,Room assignment TBD
+0/29	Closed	
+20135	P03	
+M,7:30 pm – 8:20 pm,Room assignment TBD
+0/29	Closed	
+20136	P04	
+T,3:30 pm – 4:20 pm,Room assignment TBD
+0/29	Closed	
+20137	P05	
+T,7:30 pm – 8:20 pm,Room assignment TBD
+2/29		
+20138	P06	
+T,3:30 pm – 4:20 pm,Room assignment TBD
+1/31		
+20139	P07	
+M,7:30 pm – 8:20 pm,Room assignment TBD
+8/25		

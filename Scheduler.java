@@ -17,8 +17,9 @@ public class Scheduler {
         Scanner scanner = new Scanner(System.in);
         System.out.println("How many courses do you want in your schedule?");
         int courseCount = scanner.nextInt();
+        scanner.nextLine(); // throws away the \n after the inputted int
 
-        List<Course> courses = Parsing.generateCourses();
+        List<Course> courses = Parsing.generateCourses("nick_data.txt");
 
         // find all combinations of courses with courseCount items
         List<Course[]> course_combos = Helper.combinations(courses, courseCount);
@@ -37,30 +38,71 @@ public class Scheduler {
             // add all these options to all schedule
             all_schedules.addAll(combo_schedules);
         }
-        System.out.println(all_schedules.size());
-
+        System.out.println("found " + all_schedules.size() + " possible schedules");
         // stuff for must including that class
-        System.out.println("Any mandatory classes to include? (press enter to skip)");
+        System.out.println("Any mandatory classes to include? Separate multiple classes with a comma. (press enter to skip)");
         for (int i = 0; i < courses.size() - 1; i++) {
             System.out.print(courses.get(i).name + ", ");
         }
         System.out.println(courses.get(courses.size() - 1).name);
-        String exclude = scanner.next();
+        
+        String included_whole = scanner.nextLine();
+        String[] included_split = included_whole.split(",");
+        for (int i = 0; i < included_split.length; i++) included_split[i] = included_split[i].trim();
 
-        boolean flag = true;
-        for (int i = 0; i < all_schedules.size(); i++) {
-            flag = true;
-            for (Timeslot t : all_schedules.get(i)) if (t.parentCourse.equals(exclude)) flag = false;
-            if (flag) {
-                for (Timeslot t : all_schedules.get(i)) {
-                    System.out.print(t + " ");
-                }
-                System.out.println();
-                all_schedules.remove(i);
-                i--;
+        // how many sections in total are from all the mandatory classes
+        int included_sections = 0;
+        for (String c : included_split) {
+            for (int i = 0; i < courses.size(); i++) {
+                if (courses.get(i).name.equals(c)) included_sections += courses.get(i).sections.size();
             }
         }
-        System.out.println(all_schedules.size());  
+
+        System.out.println("Include closed classes? Enter Yes or No.");
+        String include_closed = scanner.nextLine();
+        boolean show_closed = include_closed.strip().toLowerCase().equals("yes");
+
+        int valid_schedules_counter = 0;
+        int classes_included_saw;
+        // for all valid schedules,
+        schedule_iter:
+        for (int i = 0; i < all_schedules.size(); i++) {
+            // filters
+            classes_included_saw = 0;
+            for (Timeslot t : all_schedules.get(i)) {
+                // System.out.println("current timeslot " + t);
+                // if this current schedule has a mandatory class, it saw one more
+                for (String e : included_split) {
+                    // System.out.println("included class: " + e + ", parent course" + t.parentCourse + ", overlap = " + t.parentCourse.equals(e));
+                    if (t.parentCourse.equals(e)) classes_included_saw++;
+                }
+
+                // if this current schedule has a closed timeslot, go to the nexts
+                // System.out.println(t + " " + t.closed);
+                if (!show_closed && t.closed) continue schedule_iter;
+            }
+
+            // System.out.println("was this schedule included: " + (classes_included_saw != included_sections));
+            if (classes_included_saw != included_sections) {
+                // System.out.print("schedule not included: ");
+                // for (Timeslot t : all_schedules.get(i)) {
+                //     System.out.print(t + " ");
+                // }
+                // System.out.println();
+                continue schedule_iter;
+            }
+
+            // TODO: filters for days and times off
+
+            // at this point, the current schedule passed all the filters, so print it out
+            System.out.print("Schedule " + (valid_schedules_counter + 1) + ": ");
+            for (Timeslot t : all_schedules.get(i)) {
+                System.out.print(t + " ");
+            }
+            System.out.println();
+            valid_schedules_counter++;
+        }
+        System.out.println(valid_schedules_counter);
         scanner.close();
     }
 

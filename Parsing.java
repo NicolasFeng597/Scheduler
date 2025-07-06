@@ -3,14 +3,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 
 public class Parsing {
-   // parsing input from data.txt
-    public static List<Course> generateCourses() throws FileNotFoundException, IOException {
+   // parsing input from selected file
+    public static List<Course> generateCourses(String file_path) throws FileNotFoundException, IOException {
         List<Course> courses = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(file_path));
 
         String line = br.readLine();
         while (line != null) {
@@ -25,8 +26,7 @@ public class Parsing {
                 /* each timeslot is four lines:
                  * 0: timeslot number and name
                  * 1: class time and room assignment
-                 * 2: enrolled count
-                 * 3: limit and books
+                 * 2: enrolled, limit, closed, books (no books since no URL in copied data)
                  */
                 int lineType = 0; // the current line's type
 
@@ -39,7 +39,7 @@ public class Parsing {
                 char timeslotSectionLetter = '\0';
                 while (line != null && !line.isEmpty()) {
                     // parse each line based on its type
-                    switch (lineType % 4) {
+                    switch (lineType % 3) {
                         case 0:
                             // timeslot number, name, and parentCourse
                             timeslot = new Timeslot(); // one timeslot every 4 lines
@@ -53,21 +53,34 @@ public class Parsing {
                             break;
                         case 1:
                             // class time and room assignment
-                            String timeslotData = line.split(",Room assignment")[0];
-                            // timeslot.parseTimeslotLine(timeslotData);
-                            timeslot.time = Parsing.parseTimeslotLine(timeslotData);
+                            // edge case where the line's "To be determined", in which case
+                            // it should be an empty timeslot.time
+                            if (line.strip().equals("To be determined")) {
+                                timeslot.time = new BitSet[] {new BitSet(166), new BitSet(166), new BitSet(166), new BitSet(166), new BitSet(166)};
+                                timeslot.room = "";
+                                break;
+                            }
 
-                            timeslot.room = line.split(",Room assignment")[1].strip();
+                            String[] timeslotData = line.split(",");
+                            // timeslot.parseTimeslotLine(timeslotData);
+                            timeslot.time = Parsing.parseTimeslotLine(
+                                Arrays.copyOf(timeslotData, 2));
+
+                            timeslot.room = timeslotData[2].strip();
                             break;
                         case 2:
-                            // enrolled count
-                            timeslot.enrolled = Integer.parseInt(line.split(" ")[1]);
-                            break;
-                        case 3:
-                            // limit and books
-                            // currentSection.limit = Integer.parseInt(line.split(" ")[0]);
-                            // TODO: kinda tricky cause sometimes there's a book and other times not
-                            
+                            // enrolled, limit, closed, and books
+                            String[] line_data = line.split("\t");
+                            // the first entry is always enrolled/limit
+                            timeslot.enrolled = Integer.parseInt(line_data[0].split("/")[0]);
+                            timeslot.limit = Integer.parseInt(line_data[0].split("/")[1]);
+                
+                            // If the split data has multiple entries, only the second entry can be
+                            // closed
+                            if (line_data.length > 1) {
+                                if (line_data[1].equals("Closed")) timeslot.closed = true;
+                            }
+                        
                             // put the current finished timeslot into its section
                             addSection: 
                             {
@@ -100,13 +113,9 @@ public class Parsing {
     }
 
 
-    public static BitSet[] parseTimeslotLine(String line) {
+    public static BitSet[] parseTimeslotLine(String[] lineSections) {
         BitSet[] result = {new BitSet(166), new BitSet(166), new BitSet(166), new BitSet(166), new BitSet(166)};
-        // ex: line = M W,10:40 am – 12:00 pm,10:40 a.m. to 12:00 p.m.
-
-        String[] lineSections = line.split(",");
         // = ["M W", "10:40 am – 12:00 pm", "10:40 a.m. to 12:00 p.m.""]
-
         String[] timeSection = lineSections[1].split(" – ");
         // = ["10:40 am", "12:00 pm"]
 

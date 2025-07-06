@@ -7,6 +7,7 @@ public class Timeslot {
    int timeslotNumber; // the unique number assigned to each timeslot by the registrar, like 22204 or 20672
    int enrolled; // the number of enrolled students in the timeslot
    int limit; // the limit to the number of students in the timeslot
+   boolean closed = false; // whether or not this timeslot is closed
    String parentCourse; // the course that this timeslot is a part of, like "EGR 156" or "COS 126"
 
    /*

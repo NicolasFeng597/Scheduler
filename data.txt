@@ -278,3 +278,26 @@ Limit: 25
 Th,10:40 am – 11:30 am,10:40 a.m. to 11:30 a.m.,Room assignment TBD
 Enrolled: 9
 Limit: 29	
+
+CHI 103
+20593	C01	
+M T W Th F,8:30 am – 9:20 am,Room assignment TBD
+10/12		Booksfor section C01
+20594	C02	
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+10/12		Booksfor section C02
+22917	C02A	
+M T W Th F,9:35 am – 10:25 am,Room assignment TBD
+12/12		Booksfor section C02A
+20595	C03	
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+3/12		Booksfor section C03
+23323	C03A	
+M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
+12/12		Booksfor section C03A
+20596	D01	
+F,1:20 pm – 2:10 pm,Room assignment TBD
+17/26		
+20597	D02	
+F,2:25 pm – 3:15 pm,Room assignment TBD
+22/26	
