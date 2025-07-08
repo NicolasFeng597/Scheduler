@@ -24,21 +24,6 @@ public class Scheduler {
         // find all combinations of courses with courseCount items
         List<Course[]> course_combos = Helper.combinations(courses, courseCount);
 
-        List<Timeslot[]> all_schedules = new ArrayList<>();
-
-        // for each course combo in course_combos, we want to find all the possible schedules that come out of that combo
-        for (Course[] course_combo : course_combos) {
-            // first, convert the Course[] into a List<Section> of all sections from that combo
-            // so, if I had a Course[5] with each Course having 3 Sections, the resultant length(List<Section>) = 15
-            List<Section> combo_sections = Helper.courses_to_sections(course_combo);
-
-            // then, convert the list of sections to a list of all combos of timeslots
-            List<Timeslot[]> combo_schedules = Helper.choose_timeslots_dumb(combo_sections);
-
-            // add all these options to all schedule
-            all_schedules.addAll(combo_schedules);
-        }
-        System.out.println("found " + all_schedules.size() + " possible schedules");
         // stuff for must including that class
         System.out.println("Any mandatory classes to include? Separate multiple classes with a comma. (press enter to skip)");
         for (int i = 0; i < courses.size() - 1; i++) {
@@ -57,10 +42,27 @@ public class Scheduler {
                 if (courses.get(i).name.equals(c)) included_sections += courses.get(i).sections.size();
             }
         }
-
+        
         System.out.println("Include closed classes? Enter Yes or No.");
         String include_closed = scanner.nextLine();
         boolean show_closed = include_closed.strip().toLowerCase().equals("yes");
+        
+        // actual logic for finding stuff
+        List<Timeslot[]> all_schedules = new ArrayList<>();
+
+        // for each course combo in course_combos, we want to find all the possible schedules that come out of that combo
+        for (Course[] course_combo : course_combos) {
+            // first, convert the Course[] into a List<Section> of all sections from that combo
+            // so, if I had a Course[5] with each Course having 3 Sections, the resultant length(List<Section>) = 15
+            List<Section> combo_sections = Helper.courses_to_sections(course_combo);
+
+            // then, convert the list of sections to a list of all combos of timeslots
+            List<Timeslot[]> combo_schedules = Helper.choose_timeslots_dumb(combo_sections);
+
+            // add all these options to all schedule
+            all_schedules.addAll(combo_schedules);
+        }
+        System.out.println("found " + all_schedules.size() + " possible schedules");
 
         int valid_schedules_counter = 0;
         int classes_included_saw;
@@ -71,7 +73,7 @@ public class Scheduler {
             classes_included_saw = 0;
             for (Timeslot t : all_schedules.get(i)) {
                 // System.out.println("current timeslot " + t);
-                // if this current schedule has a mandatory class, it saw one more
+                // if this current schedule has a mandatory section, it saw one more
                 for (String e : included_split) {
                     // System.out.println("included class: " + e + ", parent course" + t.parentCourse + ", overlap = " + t.parentCourse.equals(e));
                     if (t.parentCourse.equals(e)) classes_included_saw++;

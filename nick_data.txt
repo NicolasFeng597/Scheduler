@@ -208,29 +208,3 @@ W,1:20 pm – 4:10 pm,Room assignment TBD
 21234	B05	
 Th,7:30 pm – 10:20 pm,Room assignment TBD
 15/35		
-
-ORF 309
-20132	L01	
-M W F,8:30 am – 9:20 am,Room assignment TBD
-0/190	Closed	Booksfor section L01
-20133	P01	
-M,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed	
-20134	P02	
-M,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed	
-20135	P03	
-M,7:30 pm – 8:20 pm,Room assignment TBD
-0/29	Closed	
-20136	P04	
-T,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed	
-20137	P05	
-T,7:30 pm – 8:20 pm,Room assignment TBD
-2/29		
-20138	P06	
-T,3:30 pm – 4:20 pm,Room assignment TBD
-1/31		
-20139	P07	
-M,7:30 pm – 8:20 pm,Room assignment TBD
-8/25		

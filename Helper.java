@@ -256,6 +256,8 @@ public class Helper {
     // static int[] section_lengths;
     // static List<Timeslot[]> sections;
     public static List<Timeslot[]> choose_timeslots_dumb(List<Section> all_sections) {
+        // stuff for seeing how long this func takes
+
         set_sections(all_sections);
 
         List<Timeslot[]> all_schedules = new ArrayList<Timeslot[]>();
@@ -297,6 +299,7 @@ public class Helper {
             }
             if (flag_ah) all_schedules.add(generate_combo_from_indexes());
         }
+
         return all_schedules;
     }
     
