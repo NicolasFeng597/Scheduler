@@ -388,6 +388,7 @@ public class Helper {
     private static int increment(int[] current, int[] maxValues, int place){
         boolean carryOver = true;
 
+
         while (carryOver){
             if (place  <= -1) {
                 break;

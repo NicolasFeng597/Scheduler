@@ -19,7 +19,7 @@ public class Scheduler {
         int courseCount = scanner.nextInt();
         scanner.nextLine(); // throws away the \n after the inputted int
 
-        List<Course> courses = Parsing.generateCourses("nick_data.txt");
+        List<Course> courses = Parsing.generateCourses("nick.txt");
 
         // find all combinations of courses with courseCount items
         List<Course[]> course_combos = Helper.combinations(courses, courseCount);
