@@ -1,27 +1,4 @@
 
-CHI 103
-20593	C01
-M T W Th F,8:30 am – 9:20 am,Room assignment TBD
-10/12		Booksfor section C01
-20594	C02
-M T W Th F,9:35 am – 10:25 am,Room assignment TBD
-10/12		Booksfor section C02
-22917	C02A
-M T W Th F,9:35 am – 10:25 am,Room assignment TBD
-12/12		Booksfor section C02A
-20595	C03
-M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
-3/12		Booksfor section C03
-23323	C03A
-M T W Th F,12:15 pm – 1:05 pm,Room assignment TBD
-12/12		Booksfor section C03A
-20596	D01
-F,1:20 pm – 2:10 pm,Room assignment TBD
-17/26
-20597	D02
-F,2:25 pm – 3:15 pm,Room assignment TBD
-22/26
-
 COS 226
 20672	L01
 T Th,10:40 am – 12:00 pm,Room assignment TBD
@@ -231,63 +208,6 @@ F,9:35 am – 10:25 am,Room assignment TBD
 20687	P06
 F,9:35 am – 10:25 am,Room assignment TBD
 0/10	Closed
-
-ORF 309
-20132	L01
-M W F,8:30 am – 9:20 am,Room assignment TBD
-0/190	Closed	Booksfor section L01
-20133	P01
-M,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed
-20134	P02
-M,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed
-20135	P03
-M,7:30 pm – 8:20 pm,Room assignment TBD
-0/29	Closed
-20136	P04
-T,3:30 pm – 4:20 pm,Room assignment TBD
-0/29	Closed
-20137	P05
-T,7:30 pm – 8:20 pm,Room assignment TBD
-2/29
-20138	P06
-T,3:30 pm – 4:20 pm,Room assignment TBD
-1/31
-20139	P07
-M,7:30 pm – 8:20 pm,Room assignment TBD
-8/25
-
-ECE 308
-21240	L01
-M W,9:35 am – 10:25 am,Room assignment TBD
-15/40		Booksfor section L01
-21241	B01
-T,1:20 pm – 4:10 pm,Room assignment TBD
-8/10
-21243	B02
-T,7:30 pm – 10:20 pm,Room assignment TBD
-0/10	Closed
-21242	B03
-F,1:20 pm – 4:10 pm,Room assignment TBD
-0/10	Closed
-21244	B04
-Th,1:20 pm – 4:10 pm,Room assignment TBD
-7/10
-
-ECE 305
-20688	L01
-M W,10:40 am – 12:00 pm,Room assignment TBD
-57/100		Booksfor section L01
-20690	P01
-Th,8:30 am – 9:20 am,Room assignment TBD
-30/33
-20689	P02
-Th,9:35 am – 10:25 am,Room assignment TBD
-17/33
-20691	P03
-Th,12:15 pm – 1:05 pm,Room assignment TBD
-9/33
 
 COS 324
 20692	L01
